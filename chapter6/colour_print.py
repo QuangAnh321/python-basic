@@ -17,19 +17,21 @@ REVERSE = '\u001b[7m'
 # print(GREEN, "this will be in Green")
 # print(YELLOW, "this will be in yellow")
 
-def color_print(text: str, effect: str) -> None:
+def color_print(text: str, *effects: str) -> None:
     """
     Print `text` using the ANSI sequence to modify the string
      like changing the color, etc
 
     :param text: The text to print
-    :param effect: The effect to apply to the string. It is one of the constant
+    :param effects: The effect to apply to the string. It is one of the constants
         defined in the start of this file
     """
-    output_string = "{0}{1}{2}".format(effect, text, RESET)
+    effect_string = "".join(effects)
+    output_string = "{0}{1}{2}".format(effect_string, text, RESET)
     print(output_string)
 
 
 color_print("this is red", RED)
 print("Default")
 color_print("this is bold", BOLD)
+color_print("This is green and underline", GREEN, UNDERLINE)

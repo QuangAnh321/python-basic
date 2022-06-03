@@ -37,6 +37,9 @@ for i in range(1, 101):
 
         if player_answer == correct_answer:
             print("Correct!")
+            if i == 100:
+                print("Congratulation, you won!")
+                break
             print("Computer turn next!")
         else:
             print("Ops! Wrong answer. Game Over")
